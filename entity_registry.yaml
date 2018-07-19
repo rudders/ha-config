@@ -1,0 +1,25 @@
+media_player.shed_tv:
+  config_entry_id:
+  name:
+  platform: apple_tv
+  unique_id: 9df0ffe15b839e0c6477811acc0be57cc8cfe4d69cf36b2376a23b5cd4349af4
+media_player.living_room:
+  config_entry_id:
+  name:
+  platform: apple_tv
+  unique_id: fa18483b5500a9c47eba8e7cf04f973c238bb223b0791b8b5eb7fe460dd74d03
+remote.shed_tv:
+  config_entry_id:
+  name:
+  platform: apple_tv
+  unique_id: 9df0ffe15b839e0c6477811acc0be57cc8cfe4d69cf36b2376a23b5cd4349af4
+remote.living_room:
+  config_entry_id:
+  name:
+  platform: apple_tv
+  unique_id: fa18483b5500a9c47eba8e7cf04f973c238bb223b0791b8b5eb7fe460dd74d03
+switch.festoon_lights:
+  config_entry_id:
+  name:
+  platform: wemo
+  unique_id: 221316K1100944
