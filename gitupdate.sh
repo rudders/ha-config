@@ -2,6 +2,8 @@
 
 cd /config
 
+hassio ha check
+
 git add .
 git status
 echo -n "Enter the Description for the Change: " [Minor Update]
