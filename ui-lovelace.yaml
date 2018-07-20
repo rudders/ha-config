@@ -1,0 +1,241 @@
+name: The Onion
+views:
+  - title: Lights
+    icon: mdi:lightbulb-on
+    name: Lights
+    cards:
+      - type: entities
+        title: Lights
+        entities:
+         - light.porch
+         - light.table_lamp
+         - light.hugo
+         - light.pendant
+         - light.macrame
+         - switch.festoon_lights
+         - light.shed_1
+         - light.shed_2
+         
+      - type: picture-entity
+        title: Back Door
+        name: Back Door
+        entity: camera.backdoor
+      - type: picture
+        image: http://www.bom.gov.au/radar/IDR714.gif
+
+      - type: glance
+        entities:
+          - sensor.ocl_stock
+          
+      - type: history-graph
+        entities:
+          - sensor.ocl_stock
+
+  - title: Media
+    icon: mdi:television-classic
+    name: Media Control
+    cards:
+      - type: glance
+        title: Sonos
+        entities:
+         - media_player.bathroom
+         - media_player.bbq
+         - media_player.garden
+         - media_player.kitchen
+         - media_player.lexies_sonos_one
+         - media_player.living_room
+         - media_player.lounge
+         - media_player.music_room
+         - media_player.shed_tv
+         - media_player.sony_bravia_tv
+
+  - title: Weather
+    icon: mdi:weather-partlycloudy
+    name: Weather
+    cards:
+
+      - type: glance
+        title: Newtown Now
+        entities:
+        #  - sensor.pws_station_id
+         - sensor.pws_temp_c
+         - sensor.pws_relative_humidity_2
+         - sensor.pws_precip_today_metric
+         - sensor.pws_wind_kph_2
+         - sensor.pws_wind_gust_kph_2
+         - sensor.pws_wind_dir_2
+         - sensor.pws_uv
+      
+      - type: picture
+        image: http://www.bom.gov.au/radar/IDR714.gif
+        
+        
+      - type: glance
+        title: Newtown Today
+        entities:
+         - sensor.pws_weather_2
+         - sensor.pws_temp_high_1d_c
+         - sensor.pws_temp_low_1d_c
+         - sensor.pws_precip_1d_2
+
+      - type: glance
+        title: Newtown Tomorrow
+        entities:
+         - sensor.pws_weather_2d_metric
+         - sensor.pws_temp_high_2d_c
+         - sensor.pws_temp_low_2d_c
+         - sensor.pws_precip_2d_2
+
+      - type: history-graph
+        entities:
+          - sensor.bom_sydney_conditions_air_temp_c
+          - sensor.bom_sydney_conditions_feels_like_c
+          - sensor.pws_temp_c
+        
+      - type: entities
+        title: BOM Observations
+        entities:
+          - sensor.bom_sydney_conditions_weather
+          - sensor.bom_sydney_conditions_air_temp_c
+          - sensor.bom_sydney_conditions_feels_like_c
+          - sensor.bom_sydney_conditions_rain_today
+          - sensor.bom_sydney_conditions_relative_humidity
+          - sensor.bom_sydney_conditions_dew_point_c
+          - sensor.bom_sydney_conditions_wind_direction
+          - sensor.bom_sydney_conditions_wind_gust_kmh
+          - sensor.bom_sydney_conditions_wind_speed_kmh
+          - sensor.bom_sydney_conditions_pressure_mb
+          - sensor.bom_sydney_conditions_visability_km
+          
+      - type: entities
+        title: Long Term Forecast
+        entities:
+          - sensor.pws_weather_1d_metric
+          - sensor.pws_weather_1n_metric
+          - sensor.pws_weather_2d_metric
+          - sensor.pws_weather_2n_metric
+          - sensor.pws_weather_3d_metric
+          - sensor.pws_weather_3n_metric
+          - sensor.pws_weather_4d_metric
+          - sensor.pws_weather_4n_metric
+
+  - title: Ovals
+    icon: mdi:gate
+    name: Ovals
+    cards:
+     - type: entities
+    #   title: Ovals
+       entities:
+         - sensor.ado
+         - sensor.trumper
+         - sensor.drummoyne
+         - sensor.heffron
+         - sensor.jubilee
+         - sensor.bat_and_ball
+         - sensor.david_philips_south
+         - sensor.mackey_park
+         - sensor.steel_park
+
+  - title: HA Host
+    icon: mdi:raspberrypi
+    name: HA Host
+    cards:
+      - type: glance
+        entities:
+          - sensor.disk_free_
+          - sensor.memory_free
+          - sensor.last_boot
+          
+      - type: history-graph
+        entities:
+           - sensor.processor_use
+        
+      - type: entities
+        entities:
+          - sensor.disk_free_
+          - sensor.last_boot
+          - sensor.memory_free
+          - sensor.processor_use
+          - sensor.network_in_eth0
+          - sensor.network_out_eth0
+
+  - title: NAS
+    icon: mdi:server
+    name: NAS
+    cards:
+      - type: history-graph
+        entities:
+           - sensor.onionnas_network_down_eth0
+           - sensor.onionnas_network_up_eth0
+           - sensor.onionnas_cpu_usage
+           - sensor.onionnas_memory_usage
+      - type: entities
+        name: Statistics
+        entities:
+          - sensor.onionnas_cpu_temperature
+          - sensor.onionnas_cpu_usage
+          - sensor.onionnas_memory_available
+          - sensor.onionnas_memory_usage
+          - sensor.onionnas_memory_used
+          - sensor.onionnas_smart_status_drive_01
+          - sensor.onionnas_smart_status_drive_02
+          - sensor.onionnas_smart_status_drive_03
+          - sensor.onionnas_smart_status_drive_04
+          - sensor.onionnas_system_temperature
+          - sensor.onionnas_temperature_drive_01
+          - sensor.onionnas_temperature_drive_02
+          - sensor.onionnas_temperature_drive_03
+          - sensor.onionnas_temperature_drive_04
+      - type: entities
+        name: Network
+        entities:
+          - sensor.onionnas_network_link_eth0
+          - sensor.onionnas_network_up_eth0
+          - sensor.onionnas_network_down_eth0
+
+  - title: Network
+    icon: mdi:lan
+    name: Network
+    cards:
+      - type: glance
+        name: Speedtest
+        title: Speedtest
+        entities:
+          - sensor.speedtest_download
+          - sensor.speedtest_upload
+          - sensor.speedtest_ping
+
+      - type: glance
+        name: Deluge
+        title: Deluge
+        entities:
+          - sensor.deluge_down_speed
+          - sensor.deluge_up_speed
+          - sensor.deluge_status
+          - switch.deluge_switch
+      - type: history-graph
+        entities:
+           - sensor.deluge_down_speed
+           - sensor.deluge_up_speed
+           - sensor.speedtest_download
+
+# camera.weather_radar
+# device_tracker.rudders_iphone_x
+# group.all_devices
+# group.all_lights
+# group.all_remotes
+# group.all_switches
+
+# persistent_notification.config_entry_discovery
+## remote.living_room
+#  remote.shed_tv
+ 
+
+#  sensor.rudders_iphone_x_battery_level
+#  sensor.rudders_iphone_x_battery_state
+#  sensor.speedtest_download
+#  sensor.speedtest_ping
+#  sensor.speedtest_upload
+#  switch.deluge_switch
+#  switch.festoon_lights
+#  zone.home	zoning

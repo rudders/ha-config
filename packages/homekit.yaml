@@ -1,0 +1,9 @@
+homekit:
+  auto_start: False
+  filter:
+    include_domains:
+      - media_player
+    include_entities:
+      - switch.festoon_lights
+      - light.shed_1
+      - light.shed_2
