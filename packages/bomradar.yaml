@@ -1,0 +1,4 @@
+  camera:
+    - platform: generic
+      name: Weather Radar
+      still_image_url: http://www.bom.gov.au/radar/IDR714.gif

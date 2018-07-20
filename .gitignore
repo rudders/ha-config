@@ -3,7 +3,7 @@
 !scenes
 !.gitignore
 !gitupdate.sh
-!packages/*.yaml
+!/packages/
 secrets.yaml
 known_devices.yaml
 entity_registry.yaml

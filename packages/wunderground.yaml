@@ -1,0 +1,27 @@
+sensor:
+  - platform: wunderground
+    api_key: !secret wunderground_token
+    pws_id: ISYDNEY436
+    monitored_conditions:
+      - weather_1d_metric
+      - weather_1n_metric
+      - weather_2d_metric
+      - weather_2n_metric
+      - weather_3d_metric
+      - weather_3n_metric
+      - weather_4d_metric
+      - weather_4n_metric
+      - temp_c
+      - UV
+      - precip_today_metric
+      - precip_1d
+      - precip_2d
+      - pressure_trend
+      - relative_humidity
+      - station_id
+      - weather
+      - weather_2d_metric
+      - temp_high_1d_c
+      - temp_low_1d_c
+      - temp_high_2d_c
+      - temp_low_2d_c

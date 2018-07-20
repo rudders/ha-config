@@ -1,0 +1,21 @@
+sensor:
+  - platform: qnap
+    host: 192.168.0.50
+    port: 8999
+    username: !secret qnap_userid
+    password: !secret qnap_password
+    monitored_conditions:
+      - system_temp
+      - cpu_temp
+      - cpu_usage
+      - memory_free
+      - memory_used
+      - memory_percent_used
+      - network_link_status
+      - network_tx
+      - network_rx
+      - drive_smart_status
+      - drive_temp
+      - volume_size_free
+      - volume_size_used
+      - volume_percentage_used

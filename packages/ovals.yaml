@@ -1,0 +1,122 @@
+sensor:
+  - platform: pyquery
+    name: Mackey Park
+    scan_interval: 3600
+    resource: https://www.innerwest.nsw.gov.au/places---spaces/sporting-grounds/sporting-ground-status
+    select: tr:contains(Mackey) td p
+    attribute: text
+    value_template: >-
+       {{ value | capitalize }}
+
+  - platform: pyquery
+    name: Steel Park
+    scan_interval: 3600
+    resource: https://www.innerwest.nsw.gov.au/places---spaces/sporting-grounds/sporting-ground-status
+    select: tr:contains(Steel) td p
+    attribute: text
+    value_template: >-
+       {{ value | capitalize }}
+        
+  - platform: pyquery
+    name: Jubilee
+    scan_interval: 3600
+    resource: http://www.cityofsydney.nsw.gov.au/explore/facilities/sports-facilities
+    select: tr:contains(Jubilee) td:nth-of-type(2)
+    attribute: text
+    value_template: >-
+       {{ value | capitalize }}
+
+  - platform: pyquery
+    name: Heffron
+    scan_interval: 3600
+    resource: http://www.randwick.nsw.gov.au/facilities-and-recreation/sports-fields/field-status
+    select: tr:contains(Heffron) td:nth-of-type(2)
+    attribute: text   
+    value_template: >-
+       {{ value | capitalize }}
+    
+  - platform: pyquery
+    name: David Philips South
+    scan_interval: 3600
+    resource: https://www.arc.unsw.edu.au/sport/facilities/wetweather
+    select: ul li ul li:contains(South) strong
+    attribute: text       
+    value_template: >-
+       {{ value | capitalize }}
+    
+  - platform: pyquery
+    name: Drummoyne
+    scan_interval: 3600
+    resource: http://www.canadabay.nsw.gov.au/sports-facilities-and-fields-wet-weather-field-updates.html
+    select: tr:contains(Drumm) td:nth-of-type(3)
+    attribute: text       
+    value_template: >-
+       {{ value | capitalize }}
+#   - platform: scrape
+#     name: Drummoyne
+#     scan_interval: 3600
+#     resource: http://wetweathercheck.com/grounds/26
+#     select: ".portlet-body .btn"
+    
+#   - platform: scrape
+#     name: Jubilee
+#     scan_interval: 3600
+#     resource: http://wetweathercheck.com/grounds/29
+#     select: ".portlet-body .btn"
+    
+  - platform: scrape
+    name: Bat and Ball
+    scan_interval: 3600
+    resource: http://wetweathercheck.com/grounds/35
+    select: ".portlet-body .btn"
+    value_template: >-
+       {{ value | capitalize }}
+    
+#   - platform: scrape
+#     name: Heffron
+#     scan_interval: 3600
+#     resource: http://wetweathercheck.com/grounds/55
+#     select: ".portlet-body .btn"
+    
+#   - platform: scrape
+#     name: Dave Phillips
+#     scan_interval: 3600
+#     resource: http://wetweathercheck.com/grounds/71
+#     select: ".portlet-body .btn"
+
+  - platform: pyquery
+    name: Trumper
+    scan_interval: 3600
+    resource: https://www.woollahra.nsw.gov.au/recreation/sports_grounds/sportsground_closures
+    select: div.info_message p:Contains(umper)
+    attribute: text
+    value_template: >- 
+      {% if value == "" %}
+         Open
+      {% else %}
+        {{ value | capitalize }}
+      {% endif %}
+
+#       {% if not states('sensor.trumper') %} 
+
+    
+#   - platform: scrape
+#     name: Trumper
+#     scan_interval: 3600
+#     resource: http://wetweathercheck.com/grounds/27
+#     select: ".portlet-body .btn"
+    
+  - platform: scrape
+    name: ADO
+    scan_interval: 1800
+    resource: http://www.cityofsydney.nsw.gov.au/explore/facilities/sports-facilities
+    select: ".column2 td:nth-of-type(2)"
+    value_template: >-
+       {{ value | capitalize }}
+    
+#   - platform: scrape
+#     name: Mackey Oval
+#     scan_interval: 1800
+#     resource: https://www.innerwest.nsw.gov.au/places---spaces/sporting-grounds/sporting-ground-status
+#     select: "#main-content table tbody"
+

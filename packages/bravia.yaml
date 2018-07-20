@@ -1,0 +1,7 @@
+media_player:
+  - platform: braviatv_psk
+    host: 192.168.0.71
+    psk: sony
+    mac: 04:5d:4b:93:81:3c
+    amp: True
+    android: True
