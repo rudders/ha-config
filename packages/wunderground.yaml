@@ -25,3 +25,9 @@ sensor:
       - temp_low_1d_c
       - temp_high_2d_c
       - temp_low_2d_c
+      - wind_degrees
+      - wind_dir
+      - wind_gust_kph
+      - wind_gust_1d_kph
+      - wind_kph
+      - wind_1d_kph

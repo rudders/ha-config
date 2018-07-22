@@ -1,0 +1,66 @@
+media_player.plex_web_safari:
+  icon: mdi:plex
+switch.festoon_lights:
+  homebridge_name: Festoon Lights
+  icon: mdi:lightbulb
+sensor.bom_sydney_air_temp_c:
+  friendly_name: Sydney Temp
+sensor.bom_sydney_feels_like_c:
+  friendly_name: Sydney Feels Like
+
+# Ovals
+sensor.ado:
+  icon: mdi:leaf
+sensor.trumper:
+  icon: mdi:leaf
+sensor.drummoyne:
+  icon: mdi:leaf
+sensor.heffron:
+  icon: mdi:leaf
+sensor.jubilee:
+  icon: mdi:leaf
+sensor.bat_and_ball:
+  icon: mdi:leaf
+sensor.dave_phillips:
+  icon: mdi:leaf
+sensor.mackey_oval:
+  icon: mdi:leaf
+sensor.mackey_park:
+  icon: mdi:leaf
+sensor.david_philips_south:
+  icon: mdi:leaf   
+sensor.steel_park:
+  icon: mdi:leaf   
+
+
+# Speedtest
+sensor.speedtest_download:
+  friendly_name: Download
+sensor.speedtest_upload:
+  friendly_name: Upload
+sensor.speedtest_ping:
+  friendly_name: Ping
+  
+# deluge
+sensor.deluge_down_speed:
+  friendly_name: Download
+sensor.deluge_up_speed:
+  friendly_name: Upload
+sensor.deluge_status:
+  friendly_name: Status
+switch.deluge_switch:
+  friendly_name: On/Off
+  
+# SONOS Speakers
+media_player.bbq:
+  icon: mdi:speaker
+media_player.garden:
+  icon: mdi:speaker
+media_player.music_room:
+  icon: mdi:speaker
+media_player.kitchen:
+  icon: mdi:speaker
+media_player.lounge:
+  icon: mdi:speaker
+media_player.unnamed_room:
+  icon: mdi.speaker
