@@ -14,6 +14,9 @@ homeassistant:
   customize: !include customize.yaml
   # Add packages directory
   packages: !include_dir_named packages
+  # Need access to monitor log and DB size
+  whitelist_external_dirs:
+    - /config
 
 # Show links to resources in log and frontend
 #introduction:

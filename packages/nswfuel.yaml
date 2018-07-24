@@ -1,0 +1,5 @@
+sensor:
+  - platform: nsw_fuel_station
+    station_id: 1344
+    fuel_types:
+      - P98
