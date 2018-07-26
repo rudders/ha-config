@@ -8,13 +8,13 @@ sensor:
       - download
       - upload
       
-  - platform: statistics
-    name: Speedtest Down
-    entity_id:  sensor.speedtest_download
-  - platform: statistics
-    name: Speedtest Ping
-    entity_id:  sensor.speedtest_ping
-  - platform: statistics
-    name: Speedtest Up
-    entity_id:   sensor.speedtest_upload
+#   - platform: statistics
+#     name: Speedtest Down
+#     entity_id:  sensor.speedtest_download
+#   - platform: statistics
+#     name: Speedtest Ping
+#     entity_id:  sensor.speedtest_ping
+#   - platform: statistics
+#     name: Speedtest Up
+#     entity_id:   sensor.speedtest_upload
   

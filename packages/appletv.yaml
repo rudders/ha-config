@@ -1,0 +1,5 @@
+apple_tv:
+  - host: 192.168.0.155
+    login_id: 00000000-069b-a87c-ee8c-34729ae046ab
+    name: Livingroom AppleTV
+    start_off: true

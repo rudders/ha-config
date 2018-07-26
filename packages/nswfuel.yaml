@@ -3,6 +3,6 @@ sensor:
     station_id: 1344
     fuel_types:
       - P98
-  - platform: statistics
-    name: Budget Petrol P98
-    entity_id: sensor.budget__erskineville_p98
+#   - platform: statistics
+#     name: Budget Petrol P98
+#     entity_id: sensor.budget__erskineville_p98

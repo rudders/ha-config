@@ -68,6 +68,8 @@ map:
 tts:
   - platform: google
 
+recorder:
+
 # Cloud
 cloud:
 
@@ -76,8 +78,12 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 
 logger:
-  default: info
-  
+  default: warning
+  logs:
+    homeassistant.components.recorder: debug
+  ## Gets rid of annoying messages from webcam https://github.com/home-assistant/home-assistant/issues/1806
+    requests.packages.urllib3.connectionpool: critical
+      
 influxdb:
   host: 192.168.0.50
   database: hassos

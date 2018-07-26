@@ -29,6 +29,7 @@ views:
           - sensor.ocl_stock
           - sensor.budget__erskineville_p98
       - type: history-graph
+        hours_to_show: 240
         entities:
           - sensor.budget__erskineville_p98
           
@@ -263,6 +264,8 @@ views:
     icon: mdi:lan
     name: Network
     cards:
+#       - type: iframe
+#         url: https://grafana.binarylight.com.au/d/xE053cKmk/ubnt-edgerouter-dashboard?refresh=1m&panelId=38&orgId=1&var-dataSource=default&var-host=192.168.0.1&var-intf=eth0&fullscreen
       - type: glance
         name: Speedtest
         title: Speedtest
