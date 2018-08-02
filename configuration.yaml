@@ -65,10 +65,12 @@ map:
 #  - platform: yr
 
 # Text to speech
-tts:
-  - platform: google
+# tts:
+#   - platform: google
 
 recorder:
+  purge_keep_days: 5
+  db_url: !secret mariadb_url 
 
 # Cloud
 cloud:
@@ -81,8 +83,10 @@ logger:
   default: warning
   logs:
     homeassistant.components.recorder: debug
+    homeassistant.components.camera.generic: critical
   ## Gets rid of annoying messages from webcam https://github.com/home-assistant/home-assistant/issues/1806
-    requests.packages.urllib3.connectionpool: critical
+#     requests.packages.urllib3.connectionpool: critical
+
       
 influxdb:
   host: 192.168.0.50

@@ -1,0 +1,6 @@
+binary_sensor:
+  - platform: threshold
+    name: Gas Heater
+    entity_id: sensor.aeotec_zw096_smart_switch_6_current_2
+    upper: .07
+    

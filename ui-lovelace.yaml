@@ -4,26 +4,64 @@ views:
     icon: mdi:lightbulb-on
     name: Lights
     cards:
-      - type: entities
-        title: Lights
+      - type: glance
+        column_width: 25%
         entities:
-         - light.porch
-         - light.table_lamp
-         - light.hugo
-         - light.pendant
-         - light.dining_pendant
-         - light.macrame
-         - switch.festoon_lights
-         - light.shed_1
-         - light.shed_2
-         
-      - type: picture-entity
-        title: Back Door
-        name: Back Door
-        entity: camera.backdoor
-      - type: picture
-        image: http://www.bom.gov.au/radar/IDR714.gif
+         - entity: light.table_lamp
+           name: Side Table
+           tap_action: toggle
+         - entity: light.hugo
+           name: Bookcase
+           tap_action: toggle
+         - entity: light.pendant
+           name: Pendant
+           tap_action: toggle
+         - entity: light.dining_pendant
+           tap_action: toggle
+           name: Dining
+      - type: glance
+        column_width: 25%
+        entities:
+         - entity: light.porch
+           name: Porch
+           tap_action: toggle
+         - entity: light.macrame
+           tap_action: toggle
+         - entity: switch.festoon_lights
+           name: Festoon
+           tap_action: toggle
+         - entity: group.shed_lights
+           name: Shed
+           tap_action: toggle
+#          - entity: light.shed_2
+#            tap_action: toggle
 
+#       - type: entities
+#         title: Lights
+#         entities:
+#          - light.porch
+#          - light.table_lamp
+#          - light.hugo
+#          - light.pendant
+#          - light.dining_pendant
+#          - light.macrame
+#          - switch.festoon_lights
+#          - light.shed_1
+#          - light.shed_2
+         
+      - type: entities
+        title: Heater
+        show_header_toggle: false
+        entities:
+          - entity: binary_sensor.gas_heater
+            name: Heater On/Off
+            secondary_info: last-changed
+          - entity: sensor.aeotec_zw096_smart_switch_6_current_2
+            name: Heater Current
+            secondary_info: last-changed
+          - entity: switch.aeotec_zw096_smart_switch_6_switch_2
+            name: Heater Wall Switch
+          
       - type: glance
         entities:
           - sensor.ocl_stock
@@ -32,7 +70,12 @@ views:
         hours_to_show: 240
         entities:
           - sensor.budget__erskineville_p98
-          
+
+      - type: picture-entity
+        title: Back Door
+        name: Back Door
+        entity: camera.backdoor
+
   - title: Media
     icon: mdi:television-classic
     name: Media Control
@@ -45,7 +88,6 @@ views:
          - media_player.garden
          - media_player.kitchen
          - media_player.lexies_sonos_one
-
          - media_player.music_room
       - type: entities
         title: Living Room
@@ -60,6 +102,8 @@ views:
       - type: entities
         title: Shed
         entities:
+         - entity: media_player.viera_st60_series
+           name: Panasonic TV
          - entity: media_player.shed_tv
            name: Shed AppleTV
 
@@ -158,6 +202,10 @@ views:
           - sensor.pws_weather_4d_metric
           - sensor.pws_weather_4n_metric
 
+      - type: picture
+        image: http://www.bom.gov.au/radar/IDR714.gif
+
+
   - title: Ovals
     icon: mdi:gate
     name: Ovals
@@ -196,6 +244,14 @@ views:
            - sensor.processor_use
            - sensor.memory_free
            - sensor.disk_free_
+
+      - type: entities
+        entities:
+           - sensor.state_changesminute 
+
+      - type: history-graph
+        entities:
+           - sensor.state_changesminute 
 
   - title: NAS
     icon: mdi:server
@@ -280,13 +336,15 @@ views:
         entities:
           - sensor.deluge_down_speed
           - sensor.deluge_up_speed
-          - sensor.deluge_status
+#           - sensor.deluge_status
           - switch.deluge_switch
       - type: history-graph
+        hours_to_show: 72
         entities:
            - sensor.deluge_down_speed
            - sensor.deluge_up_speed
            - sensor.speedtest_download
+           - sensor.speedtest_upload
 
 # camera.weather_radar
 # device_tracker.rudders_iphone_x

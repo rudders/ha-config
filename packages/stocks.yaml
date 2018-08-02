@@ -3,4 +3,5 @@ sensor:
     name: OCL Stock
     scan_interval: 1800
     resource: https://www.asx.com.au/asx/1/share/ocl
+    unit_of_measurement: '$'
     value_template: '{{ value_json.last_price | float }}'

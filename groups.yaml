@@ -1,0 +1,6 @@
+  shed_lights:
+    name: Shed
+    icon: mdi:light
+    entities:
+      - light.shed_1
+      - light.shed_2
