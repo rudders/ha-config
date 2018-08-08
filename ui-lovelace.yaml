@@ -56,9 +56,9 @@ views:
           - entity: binary_sensor.gas_heater
             name: Heater On/Off
             secondary_info: last-changed
-          - entity: sensor.aeotec_zw096_smart_switch_6_current_2
-            name: Heater Current
-            secondary_info: last-changed
+#           - entity: sensor.aeotec_zw096_smart_switch_6_current_2
+#             name: Heater Current
+#             secondary_info: last-changed
           - entity: switch.aeotec_zw096_smart_switch_6_switch_2
             name: Heater Wall Switch
           
@@ -70,7 +70,11 @@ views:
         hours_to_show: 240
         entities:
           - sensor.budget__erskineville_p98
-
+          
+#       - type: iframe
+#         title: Erko 98 RON
+#         url: https://grafana.binarylight.com.au/render/d-solo/xv9C3pWmk/ha-dasboard?panelId=22&orgId=1&from=1532928972819&to=1533533772820&tab=general&width=1000&height=500&tz=UTC%2B10%3A00
+        
       - type: picture-entity
         title: Back Door
         name: Back Door
@@ -245,13 +249,13 @@ views:
            - sensor.memory_free
            - sensor.disk_free_
 
-      - type: entities
-        entities:
-           - sensor.state_changesminute 
+#       - type: entities
+#         entities:
+#            - sensor.state_changesminute 
 
-      - type: history-graph
-        entities:
-           - sensor.state_changesminute 
+#       - type: history-graph
+#         entities:
+#            - sensor.state_changesminute 
 
   - title: NAS
     icon: mdi:server
@@ -278,26 +282,28 @@ views:
            - entity: sensor.onionnas_temperature_drive_04
              name: Drive 4
 
-      - type: entities
-        name: Statistics
-        entities:
-          - sensor.onionnas_cpu_temperature
-          - sensor.onionnas_cpu_usage
-          - sensor.onionnas_memory_available
-          - sensor.onionnas_memory_usage
-          - sensor.onionnas_memory_used
-          - sensor.onionnas_network_link_eth0
-          - sensor.onionnas_network_up_eth0
-          - sensor.onionnas_network_down_eth0
+
       - type: vertical-stack
         cards:
 #           - type: entities
 #             entities:
 #               - sensor.onionnas_system_temperature
+
+          - type: entities
+            name: Statistics
+            entities:
+              - sensor.onionnas_cpu_temperature
+              - sensor.onionnas_cpu_usage
+              - sensor.onionnas_memory_available
+              - sensor.onionnas_memory_usage
+              - sensor.onionnas_memory_used
+              - sensor.onionnas_network_link_eth0
+              - sensor.onionnas_network_up_eth0
+              - sensor.onionnas_network_down_eth0
           - type: glance
             name: Drives
             column_width: 25%
-            title: SMART Status
+#             title: SMART Status
             entities:
 #               - entity: sensor.onionnas_temperature_drive_01
 #                 name: D1 Temp
