@@ -1,0 +1,23 @@
+sensor:
+  - platform: sql
+    db_url: !secret mariadb_url
+    scan_interval: 60
+    queries:
+      - name: State Changes/Minute
+        query: 'select count(state) as statechanges from states where created > utc_timestamp() - INTERVAL 1 MINUTE;'
+        column: 'statechanges'
+        unit_of_measurement: 'states'
+#         value_template: '{{ value | float }}'
+
+  - platform: sql
+    db_url: !secret mariadb_url
+    scan_interval: 60
+    queries:
+      - name: MariaDB Size
+        query: 'SELECT table_schema,
+            ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) as dbsize 
+            FROM information_schema.tables 
+            WHERE table_schema like "homeassistant"
+            GROUP BY table_schema; '
+        column: 'dbsize'
+        unit_of_measurement: 'Mb'

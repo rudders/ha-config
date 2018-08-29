@@ -1,9 +1,13 @@
 *
 !*.yaml
+!*.py
+!*.js
 !scenes
 !.gitignore
 !gitupdate.sh
 !/packages/
+!!/packages/
+!/custom-components/
 secrets.yaml
 known_devices.yaml
 entity_registry.yaml

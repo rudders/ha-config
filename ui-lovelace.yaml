@@ -1,3 +1,7 @@
+resources:
+  - url: /local/tracker-card.js?v=0.1.4
+    type: js
+
 name: The Onion
 views:
   - title: Lights
@@ -56,10 +60,10 @@ views:
           - entity: binary_sensor.gas_heater
             name: Heater On/Off
             secondary_info: last-changed
-#           - entity: sensor.aeotec_zw096_smart_switch_6_current_2
-#             name: Heater Current
-#             secondary_info: last-changed
-          - entity: switch.aeotec_zw096_smart_switch_6_switch_2
+          - entity: sensor.heater_current
+            name: Heater Current
+            secondary_info: last-changed
+          - entity: switch.heater_switch
             name: Heater Wall Switch
           
       - type: glance
@@ -228,7 +232,7 @@ views:
          - sensor.steel_park
 
   - title: HA Host
-    icon: mdi:raspberrypi
+    icon: mdi:home-assistant
     name: HA Host
     cards:
       - type: glance
@@ -248,6 +252,12 @@ views:
            - sensor.processor_use
            - sensor.memory_free
            - sensor.disk_free_
+           - sensor.mariadb_size
+      - type: custom:tracker-card
+        title:
+        trackers:
+          - sensor.custom_card_tracker
+          - sensor.custom_component_tracker
 
 #       - type: entities
 #         entities:

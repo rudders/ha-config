@@ -1,5 +1,5 @@
 sensor:
   - platform: filesize
     file_paths:
-      - /config/home-assistant_v2.db
+#       - /config/home-assistant_v2.db
       - /config/home-assistant.log

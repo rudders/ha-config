@@ -1,2 +1,9 @@
 mqtt:
   broker: core-mosquitto
+
+mqtt_eventstream:
+  publish_topic: hassmaster/topic
+  subscribe_topic: hassslaves/z-wave
+  ignore_event:
+  - call_service
+  - state_changed

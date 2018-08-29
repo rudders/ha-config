@@ -2,5 +2,6 @@
     name: Shed
     icon: mdi:light
     entities:
-      - light.shed_1
-      - light.shed_2
+      - light.shed_fridge_light
+      - light.shed_laundry_light
+      - light.shed_tools_light
