@@ -1,0 +1,5 @@
+panel_iframe:
+  radarr:
+    title: Radarr
+    icon: mdi:radar
+    url: https://radarr.binarylight.com.au

@@ -171,6 +171,7 @@ views:
              - sensor.pws_precip_2d
 
       - type: history-graph
+        hours_to_show: 48
         entities:
           - entity: sensor.bom_sydney_conditions_air_temp_c
             name: Sydney
@@ -253,6 +254,7 @@ views:
            - sensor.memory_free
            - sensor.disk_free_
            - sensor.mariadb_size
+           - sensor.state_changesminute 
       - type: custom:tracker-card
         title:
         trackers:
@@ -338,30 +340,63 @@ views:
     cards:
 #       - type: iframe
 #         url: https://grafana.binarylight.com.au/d/xE053cKmk/ubnt-edgerouter-dashboard?refresh=1m&panelId=38&orgId=1&var-dataSource=default&var-host=192.168.0.1&var-intf=eth0&fullscreen
-      - type: glance
-        name: Speedtest
-        title: Speedtest
-        entities:
-          - sensor.speedtest_download
-          - sensor.speedtest_upload
-          - sensor.speedtest_ping
+      - type: vertical-stack
+        cards:
+          - type: glance
+            name: Speedtest
+            title: Speedtest
+            entities:
+              - sensor.speedtest_download
+              - sensor.speedtest_upload
+              - sensor.speedtest_ping
+          - type: history-graph
+            hours_to_show: 72
+            entities:
+               - sensor.speedtest_download
+               - sensor.speedtest_upload
 
-      - type: glance
-        name: Deluge
-        title: Deluge
-        entities:
-          - sensor.deluge_down_speed
-          - sensor.deluge_up_speed
-#           - sensor.deluge_status
-          - switch.deluge_switch
-      - type: history-graph
-        hours_to_show: 72
-        entities:
-           - sensor.deluge_down_speed
-           - sensor.deluge_up_speed
-           - sensor.speedtest_download
-           - sensor.speedtest_upload
+#       - type: vertical-stack
+#         cards:
+#           - type: glance
+#             name: Deluge
+#             title: Deluge
+#             entities:
+#               - sensor.deluge_down_speed
+#               - sensor.deluge_up_speed
+#     #           - sensor.deluge_status
+#               - switch.deluge_switch
+#           - type: history-graph
+#             hours_to_show: 72
+#             entities:
+#               - sensor.deluge_down_speed
+#               - sensor.deluge_up_speed
 
+      - type: vertical-stack
+        cards:
+          - type: glance
+            name: Transmissiom
+            title: Transmission
+            entities:
+              - entity: sensor.transmission_down_speed
+                name: Down
+              - entity: sensor.transmission_up_speed
+                name: Up
+              - entity: sensor.transmission_total_torrents
+                name: Total
+              - entity: sensor.transmission_active_torrents
+                name: Active
+#               - entity: sensor.transmission_paused_torrents
+#                 name: Pause
+              - entity: switch.transmission_turtle_mode
+                tap_action: toggle
+                name: Switch
+          - type: history-graph
+            hours_to_show: 72
+            entities:
+              - entity: sensor.transmission_down_speed
+                name: Down              
+              - entity: sensor.transmission_up_speed
+                name: Up
 # camera.weather_radar
 # device_tracker.rudders_iphone_x
 # group.all_devices

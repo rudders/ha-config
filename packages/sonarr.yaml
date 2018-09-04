@@ -1,0 +1,5 @@
+panel_iframe:
+  sonarr:
+    title: Sonarr
+    icon: mdi:television
+    url: https://sonarr.binarylight.com.au

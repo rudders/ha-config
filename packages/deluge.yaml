@@ -1,6 +1,6 @@
 sensor:
   - platform: deluge
-    host: 192.168.0.50
+    host: 192.168.0.229
     username: !secret deluge_userid
     password: !secret deluge_password
     monitored_variables:
@@ -10,7 +10,7 @@ sensor:
   
 switch:
   - platform: deluge
-    host: 192.168.0.50
+    host: 192.168.0.229
     username: !secret deluge_userid
     password: !secret deluge_password
   

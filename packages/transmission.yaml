@@ -1,0 +1,20 @@
+sensor:
+  - platform: transmission
+    host: 192.168.0.229
+    monitored_variables:
+      - 'current_status'
+      - 'download_speed'
+      - 'upload_speed'
+      - 'active_torrents'
+      - 'paused_torrents'
+      - 'total_torrents'
+      
+switch:
+  - platform: transmission
+    host: 192.168.0.229
+    
+panel_iframe:
+  transmissiom:
+    title: Transmission
+    icon: mdi:briefcase-download
+    url: https://transmission.binarylight.com.au
