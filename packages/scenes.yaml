@@ -1,0 +1,31 @@
+scene:
+  - name: Good Morning
+    entities:
+      light.table_lamp:
+        state: on
+        brightness: 254
+      light.hugo:
+        state: on
+        brightness: 254
+      light.pendant:
+        state: on
+        brightness: 254
+  - name: Watch TV
+    entities:
+      light.table_lamp:
+        state: on
+        brightness: 100
+      light.hugo:
+        state: on
+        brightness: 100
+      light.pendant:
+        state: on
+        brightness: 100
+  - name: Goodnight
+    entities:
+      light.table_lamp:
+        state: off
+      light.hugo:
+        state: off
+      light.pendant:
+        state: off

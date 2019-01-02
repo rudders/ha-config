@@ -1,0 +1,5 @@
+input_boolean:
+  show_lounge_controls:
+    name: Lounge Controls
+    initial: false
+    icon: mdi:dots-horizontal

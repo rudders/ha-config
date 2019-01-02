@@ -1,6 +1,8 @@
 sensor:
   - platform: transmission
     host: 192.168.0.229
+    username: !secret transmission_userid 
+    password: !secret transmission_password
     monitored_variables:
       - 'current_status'
       - 'download_speed'
@@ -11,10 +13,12 @@ sensor:
       
 switch:
   - platform: transmission
+    username: !secret transmission_userid 
+    password: !secret transmission_password
     host: 192.168.0.229
     
 panel_iframe:
   transmissiom:
     title: Transmission
     icon: mdi:briefcase-download
-    url: https://transmission.binarylight.com.au
+    url: https://rudders:jennais5@transmission.binarylight.com.au

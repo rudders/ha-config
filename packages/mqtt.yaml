@@ -1,5 +1,5 @@
-mqtt:
-  broker: core-mosquitto
+# mqtt:
+#   broker: core-mosquitto
 
 mqtt_eventstream:
   publish_topic: hassmaster/topic
@@ -7,3 +7,22 @@ mqtt_eventstream:
   ignore_event:
   - call_service
   - state_changed
+  
+#### for slave
+# mqtt_eventstream:
+#   publish_topic: hassslaves/z-wave
+#   subscribe_topic: hassmaster/topic
+  
+# sensor:
+#   - platform: mqtt
+#     state_topic: 'monitor/onionpi0w/34:08:BC:60:49:CE'
+#     value_template: '{{ value_json.confidence }}'
+#     unit_of_measurement: '%'
+#     name: 'KitchenPi'
+#     
+#   - platform: min_max
+#     name: "Home Occupancy Confidence of 34:08:BC:60:49:CE (Adrian)"
+#     type: mean
+#     round_digits: 0
+#     entity_ids:
+#       - sensor.kitchenpi

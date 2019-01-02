@@ -2,6 +2,7 @@ sensor:
   - platform: glances
     host: 192.168.0.229
     port: 61208
+    version: 3
     resources:
       - disk_use_percent
       - disk_use

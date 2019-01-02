@@ -1,0 +1,50 @@
+switch:
+  - platform: tplink
+    name: Dryer
+    host: 192.168.0.228
+    
+  - platform: tplink
+    name: Washing Machine
+    host: 192.168.0.227
+    
+    
+sensor:
+# Dryer
+  - platform: template
+    sensors:
+      dryer_amps:
+        value_template: '{{ states.switch.dryer.attributes["current_a"] | replace(" A", "") | float }}'
+        unit_of_measurement: 'A'
+      dryer_watts:
+        value_template: '{{ states.switch.dryer.attributes["current_power_w"] | replace(" W", "") | float }}'
+        unit_of_measurement: 'W'
+      dryer_kw:
+        value_template: '{{ states.switch.dryer.attributes["total_energy_kwh"] | replace(" kW", "") | float }}'
+        unit_of_measurement: 'kW'
+      dryer_volts:
+        value_template: '{{ states.switch.dryer.attributes["voltage"] | replace(" V", "") | float }}'
+        unit_of_measurement: 'V' 
+  - platform: template
+    sensors:
+      washing_machine_amps:
+        value_template: '{{ states.switch.washing_machine.attributes["current_a"] | replace(" A", "") | float }}'
+        unit_of_measurement: 'A'
+      washing_machine_watts:
+        value_template: '{{ states.switch.washing_machine.attributes["current_power_w"] | replace(" W", "") | float }}'
+        unit_of_measurement: 'W'
+      washing_machine_kw:
+        value_template: '{{ states.switch.washing_machine.attributes["total_energy_kwh"] | replace(" kW", "") | float }}'
+        unit_of_measurement: 'kW'
+      washing_machine_volts:
+        value_template: '{{ states.switch.washing_machine.attributes["voltage"] | replace(" V", "") | float }}'
+        unit_of_measurement: 'V' 
+
+binary_sensor:
+  - platform: threshold
+    name: Dryer
+    entity_id: sensor.dryer_amps
+    upper: .1
+  - platform: threshold
+    name: Washing Machine
+    entity_id: sensor.washing_machine_amps
+    upper: .2

@@ -1,44 +1,178 @@
 resources:
-  - url: /local/tracker-card.js?v=0.1.4
+  - url: /local/tracker-card.js?v=0.1.5
     type: js
+
+  - url: /local/slider-entity-row.js
+    type: js
+
+  - url: /local/mini-media-player.js?v=0.9.8
+    type: module
 
 name: The Onion
 views:
-  - title: Lights
+
+#
+#   HOME
+#
+  - id: 0  # Automatically created id
+    title: Home
     icon: mdi:lightbulb-on
-    name: Lights
+    name: Home
     cards:
-      - type: glance
-        column_width: 25%
-        entities:
-         - entity: light.table_lamp
-           name: Side Table
-           tap_action: toggle
-         - entity: light.hugo
-           name: Bookcase
-           tap_action: toggle
-         - entity: light.pendant
-           name: Pendant
-           tap_action: toggle
-         - entity: light.dining_pendant
-           tap_action: toggle
-           name: Dining
-      - type: glance
-        column_width: 25%
-        entities:
-         - entity: light.porch
-           name: Porch
-           tap_action: toggle
-         - entity: light.macrame
-           tap_action: toggle
-         - entity: switch.festoon_lights
-           name: Festoon
-           tap_action: toggle
-         - entity: group.shed_lights
-           name: Shed
-           tap_action: toggle
-#          - entity: light.shed_2
+      - id: 293ec8e56cfd47b5b002e842da389d94  # Automatically created id
+        type: vertical-stack
+        cards:
+          - type: glance
+            show_state: false
+            title: Living Room
+            entities:
+              - entity: scene.good_morning
+                name: Bright
+                tap_action: call-service
+                icon: mdi:ceiling-light
+                service: scene.turn_on
+              - entity: scene.watch_tv
+                name: Dim
+                tap_action: call-service
+                icon: mdi:lightbulb-outline
+                service: scene.turn_on
+              - entity: scene.goodnight
+                name: Off
+                tap_action: call-service
+                icon: mdi:bed-empty
+                service: scene.turn_on
+              - entity: media_player.sony_bravia_tv
+                name: TV Off
+                tap_action: call-service
+                icon: mdi:television
+                service: media_player.turn_off
+              - entity: input_boolean.show_lounge_controls
+                name:
+                tap_action: toggle
+#                 services: input_boolean.toggle
+
+          - type: conditional
+            conditions:
+              - entity: input_boolean.show_lounge_controls
+                state: on
+            card:
+              type: entities
+              entities:
+                - entity: light.table_lamp
+                  name: Side Table
+                  icon: mdi:lamp
+                  type: custom:slider-entity-row
+                - entity: light.hugo
+                  name: Sideboard
+                  type: custom:slider-entity-row
+                - entity: light.pendant
+                  name: Pendant
+                  icon: mdi:ceiling-light
+                  type: custom:slider-entity-row
+                - entity: media_player.sony_bravia_tv
+                  type: custom:mini-media-player
+                  icon: mdi:television
+                  group: true
+                  hide_volume: true
+                  power_color: true
+                  hide_controls: true
+                - entity: media_player.lounge
+                  type: custom:mini-media-player
+                  hide_controls: true
+                  name: Sonos SoundBar
+                  hide_power: true
+                  group: true
+                - type: divider
+                - entity: light.hue_color_lamp_1_2
+                  name: Pendant
+                  icon: mdi:ceiling-light
+                  type: custom:slider-entity-row
+                - entity: light.dimmable_light_1
+                  name: Bookcase
+                  icon: mdi:book
+                  type: custom:slider-entity-row
+
+
+#                - entity: media_player.sony_bravia_tv
+#                  name: TV
+#                  icon: mdi:television
+#                - entity: media_player.lounge
+#                  name: TV Sound
+#                  icon: mdi:volume-high
+#                  type: custom:slider-entity-row
+#                 - type: divider
+#                 - entity: binary_sensor.gas_heater
+#                   name: Heater On/Off
+#                   secondary_info: last-changed
+#                 - entity: switch.heater_switch
+#                   name: Heater Wall Switch
+                - type: divider
+                - entity: binary_sensor.washing_machine
+                  name: Washing Machine Running
+                  secondary_info: last-changed
+                - entity: binary_sensor.dryer
+                  name: Dryer Running
+                  secondary_info: last-changed
+
+
+
+
+#           - entity: sensor.heater_current
+#             name: Heater Current
+#             secondary_info: last-changed
+
+#       - type: glance
+#         column_width: 25%
+#         entities:
+#          - entity: light.table_lamp
+#            name: Side Table
 #            tap_action: toggle
+#            icon: mdi:lamp
+#          - entity: light.hugo
+#            name: Bookcase
+#            tap_action: toggle
+#          - entity: light.pendant
+#            name: Pendant
+#            tap_action: toggle
+#            icon: mdi:ceiling-light
+
+
+      - id: 029f6c7ce1a548baa5562a8d0a5f7a4c  # Automatically created id
+        type: glance
+        columns: 6
+        entities:
+          - entity: light.porch
+            name: Porch
+            tap_action: toggle
+          - entity: light.dining_pendant
+            tap_action: toggle
+            name: Dining
+            icon: mdi:ceiling-light
+          - entity: light.macrame
+            tap_action: toggle
+          - entity: light.hue_white_lamp_1
+            name: BBQ
+            tap_action: toggle
+          - entity: switch.festoon_lights
+            name: Festoon
+            tap_action: toggle
+            icon: mdi:lightbulb-on-outline
+#           - entity: switch.table_lamp
+#             name: Xmas
+#             tap_action: toggle
+#             icon: mdi:lightbulb-on-outline
+          - entity: group.shed_lights
+            name: Shed
+            icon: mdi:home-outline
+            tap_action: toggle
+          - entity: light.hue_color_lamp_1_2
+            name: Pendant
+            icon: mdi:ceiling-light
+            tap_action: toggle
+          - entity: light.dimmable_light_1
+            name: Bookcase
+            icon: mdi:book
+            tap_action: toggle
 
 #       - type: entities
 #         title: Lights
@@ -52,111 +186,198 @@ views:
 #          - switch.festoon_lights
 #          - light.shed_1
 #          - light.shed_2
-         
-      - type: entities
-        title: Heater
-        show_header_toggle: false
+#       - type: weather-forecast
+#         entity: weather.dark_sky
+
+
+      - id: 31667e7441e14460b5a45af41ac14e1b  # Automatically created id
+        type: glance
+        columns: 4
+        show_name: false
         entities:
-          - entity: binary_sensor.gas_heater
-            name: Heater On/Off
-            secondary_info: last-changed
-          - entity: sensor.heater_current
-            name: Heater Current
-            secondary_info: last-changed
-          - entity: switch.heater_switch
-            name: Heater Wall Switch
+          - entity: sensor.pws_station_id
+            name: Newtown
+          - entity: sensor.pws_temp_c
+            name: Temp
+          - entity: sensor.pws_relative_humidity
+            name: Humid
+          - entity: sensor.pws_precip_today_metric
+            name: Rain
+          - sensor.pws_weather
+          - sensor.pws_temp_low_1d_c
+          - sensor.pws_temp_high_1d_c
+          - sensor.pws_precip_1d
+          - sensor.pws_weather_2d_metric
+          - sensor.pws_temp_low_2d_c
+          - sensor.pws_temp_high_2d_c
+          - sensor.pws_precip_2d
           
-      - type: glance
+      - id: e123123412
+        type: glance
+        title: Mitchell's Room
+        show_name: false
+        columns: 2
+        entities:
+          - entity: sensor.mitchells_room_temperature
+            name: Temp
+          - entity: sensor.mitchells_room_humidity
+            name: Humidity
+
+      - id: ad39bf8170f94094b578e4dd5db08945  # Automatically created id
+        type: conditional
+        conditions:
+          - entity: sensor.pws_precip_1d
+            state_not: '0'
+        card:
+          type: picture
+          image: http://www.bom.gov.au/radar/IDR714.gif
+
+      - id: 27a47f55396345aea93f0eee86fd255f  # Automatically created id
+        type: glance
         entities:
           - sensor.ocl_stock
           - sensor.budget__erskineville_p98
-      - type: history-graph
+      - id: 032ab74b51934e259cad896bfd631558  # Automatically created id
+        type: history-graph
         hours_to_show: 240
         entities:
           - sensor.budget__erskineville_p98
-          
+
 #       - type: iframe
 #         title: Erko 98 RON
 #         url: https://grafana.binarylight.com.au/render/d-solo/xv9C3pWmk/ha-dasboard?panelId=22&orgId=1&from=1532928972819&to=1533533772820&tab=general&width=1000&height=500&tz=UTC%2B10%3A00
-        
-      - type: picture-entity
+      - id: e7406c65700e42419bd36de373d93009  # Automatically created id
+        type: picture-entity
         title: Back Door
         name: Back Door
         entity: camera.backdoor
 
-  - title: Media
+      - id: bd254293f396423f8630560e074e7005  # Automatically created id
+        type: iframe
+        url: https://grafana.binarylight.com.au/d-solo/xv9C3pWmk/ha-dasboard?panelId=26&orgId=1&tab=metrics"
+          width="450" height="200" frameborder="0"
+
+###
+### MEDIA
+### 
+
+
+  - id: 1  # Automatically created id
+    title: Media
     icon: mdi:television-classic
     name: Media Control
     cards:
-      - type: glance
+
+      - id: 95f335d768714846bd18830f82772c9e  # Automatically created id
+        type: entities
+        title: TV
+        entities:
+          - entity: media_player.sony_bravia_tv
+            type: custom:mini-media-player
+            group: true
+            hide_volume: true
+            power_color: true
+            hide_controls: true
+          - entity: media_player.lounge
+            type: custom:mini-media-player
+            hide_controls: true
+            name: Sonos SoundBar
+            hide_power: true
+            group: true
+
+      - id: 25325e053fb448e0b24f91a3804fd75d  # Automatically created id
+        type: glance
         title: Sonos
         entities:
-         - media_player.bathroom
-         - media_player.bbq
-         - media_player.garden
-         - media_player.kitchen
-         - media_player.lexies_sonos_one
-         - media_player.music_room
-      - type: entities
+          - media_player.bathroom
+          - media_player.bbq
+          - media_player.garden
+          - media_player.kitchen
+          - media_player.lexies_sonos_one
+          - media_player.music_room
+      - id: 228ad12cd018469fb76ae4a7178d66bc  # Automatically created id
+        type: entities
         title: Living Room
         entities:
-         - entity: media_player.sony_bravia_tv
-           name: TV
-         - entity: media_player.lounge
-           name: TV Sound
-         - entity: media_player.living_room
-           name: AppleTV
+          - entity: media_player.sony_bravia_tv
+            name: TV
+          - entity: media_player.lounge
+            name: TV Sound
+          - entity: media_player.living_room
+            name: AppleTV
 
-      - type: entities
+      - id: ee6327b60c7c4dd9962e03cc12d821b5  # Automatically created id
+        type: entities
         title: Shed
         entities:
-         - entity: media_player.viera_st60_series
-           name: Panasonic TV
-         - entity: media_player.shed_tv
-           name: Shed AppleTV
-
-  - title: Weather
+          - entity: media_player.viera_st60_series
+            name: Panasonic TV
+          - entity: media_player.shed_tv
+            name: Shed AppleTV
+##
+## WEATHER
+##
+  - id: 2  # Automatically created id
+    title: Weather
     icon: mdi:weather-partlycloudy
     name: Weather
-    cards:  
-      - type: vertical-stack
+    cards:
+      - id: ad0ca38fb90d4cf59df4ac80eeea72a5  # Automatically created id
+        type: entities
+        title: BOM Forecast
+        entities:
+          - sensor.bom_forecast_sydney_0
+          - sensor.bom_forecast_sydney_1
+          - sensor.bom_forecast_sydney_2
+          - sensor.bom_forecast_sydney_3
+      - id: 07f46f7df3ab43d8b8b66fa41e3f7252  # Automatically created id
+        type: glance
+        title: Sydney BOM
+        entities:
+          - entity: sensor.bom_sydney_0_max
+            name: Max
+            icon: mdi:thermometer
+      - id: 840bb961d7c84e81ae4b28af0dced14c  # Automatically created id
+        type: vertical-stack
         cards:
           - type: glance
             title: Newtown Now
             entities:
             #  - sensor.pws_station_id
-             - entity: sensor.pws_temp_c
-               name: Temp
-             - entity: sensor.pws_relative_humidity
-               name: Humid
-             - entity: sensor.pws_precip_today_metric
-               name: Rain
-             - entity: sensor.pws_wind_kph
-               name: Wind
-             - entity: sensor.pws_wind_1d_kph
-               name: Ave Wind
-             - entity: sensor.pws_wind_gust_1d_kph
-               name: Gust
-             - entity: sensor.pws_wind_dir
-               name: Dir
-             - entity: sensor.pws_uv
-               name: UV
-             - entity: sensor.kitchen_temperature
-               name: Kitchen
-             - entity: sensor.shed_temperature
-               name: Shed
+              - entity: sensor.pws_temp_c
+                name: Temp
+              - entity: sensor.pws_relative_humidity
+                name: Humid
+              - entity: sensor.pws_precip_today_metric
+                name: Rain
+              - entity: sensor.pws_wind_kph
+                name: Wind
+              - entity: sensor.pws_wind_1d_kph
+                name: Ave Wind
+              - entity: sensor.pws_wind_gust_1d_kph
+                name: Gust
+              - entity: sensor.pws_wind_dir
+                name: Dir
+              - entity: sensor.pws_uv
+                name: UV
+              - entity: sensor.mitchells_room_temperature
+                name: Mitch
+              - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
+                name: Kitchen
+              - entity: sensor.aeotec_zw100_multisensor_6_temperature
+                name: Shed
           - type: glance
             title: Newtown Today/Tom
-            column_width: 25%
+            columns: 4
             show_name: false
             entities:
 #              - entity: sensor.pws_station_id
 #                icon: mdi:calendar
 #                name: Today
-             - sensor.pws_weather
-             - sensor.pws_temp_high_1d_c
-             - sensor.pws_temp_low_1d_c
-             - sensor.pws_precip_1d    
+              - sensor.pws_weather
+              - sensor.pws_temp_high_1d_c
+              - sensor.pws_temp_low_1d_c
+              - sensor.pws_precip_1d
 #           - type: glance
 #             show_name: false
 #             column_width: 25%
@@ -165,12 +386,13 @@ views:
 #              - entity: sensor.pws_station_id
 #                icon: mdi:calendar-plus
 #                name: Tomorrow
-             - sensor.pws_weather_2d_metric
-             - sensor.pws_temp_high_2d_c
-             - sensor.pws_temp_low_2d_c
-             - sensor.pws_precip_2d
+              - sensor.pws_weather_2d_metric
+              - sensor.pws_temp_high_2d_c
+              - sensor.pws_temp_low_2d_c
+              - sensor.pws_precip_2d
 
-      - type: history-graph
+      - id: ce5692f48a42429eaaec6ccf7158c3ef  # Automatically created id
+        type: history-graph
         hours_to_show: 48
         entities:
           - entity: sensor.bom_sydney_conditions_air_temp_c
@@ -179,12 +401,15 @@ views:
             name: Feels Like
           - entity: sensor.pws_temp_c
             name: Newtown
-          - entity: sensor.kitchen_temperature
+          - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
             name: Kitchen
-          - entity: sensor.shed_temperature
+          - entity: sensor.aeotec_zw100_multisensor_6_temperature
             name: Shed
-        
-      - type: entities
+          - entity: sensor.mitchells_room_temperature
+            name: Mitch
+
+      - id: 10fa5c0ffd114ddfa6af804636aa5cc5  # Automatically created id
+        type: entities
         title: BOM Now
         entities:
           - sensor.bom_sydney_conditions_weather
@@ -198,8 +423,9 @@ views:
           - sensor.bom_sydney_conditions_wind_speed_kmh
           - sensor.bom_sydney_conditions_pressure_mb
           - sensor.bom_sydney_conditions_visability_km
-          
-      - type: entities
+
+      - id: 85329d54a4a543cebdbc8ef7d97ba75d  # Automatically created id
+        type: entities
         title: Forecast
         entities:
           - sensor.pws_weather_1d_metric
@@ -211,55 +437,96 @@ views:
           - sensor.pws_weather_4d_metric
           - sensor.pws_weather_4n_metric
 
-      - type: picture
+      - id: 6d043e091a894914b6071ae5bf964d04  # Automatically created id
+        type: picture
         image: http://www.bom.gov.au/radar/IDR714.gif
 
+      - id: 8274ffef8a2649e690a245c643c428fe  # Automatically created id
+        type: iframe
+        url: https://embed.windy.com/embed2.html
+        title: Weather radar
 
-  - title: Ovals
+
+  - id: 3  # Automatically created id
+    title: Ovals
     icon: mdi:gate
     name: Ovals
     cards:
-     - type: entities
+      - id: 3bcadeac4fe844e68c18d67609f8a2ee  # Automatically created id
+        type: entities
     #   title: Ovals
-       entities:
-         - sensor.ado
-         - sensor.trumper
-         - sensor.drummoyne
-         - sensor.heffron
-         - sensor.jubilee
-         - sensor.bat_and_ball
-         - sensor.david_philips_south
-         - sensor.mackey_park
-         - sensor.steel_park
+        entities:
+          - sensor.ado
+          - sensor.trumper
+          - sensor.drummoyne
+          - sensor.heffron
+          - sensor.jubilee
+          - sensor.bat_and_ball
+          - sensor.david_philips_south
+          - sensor.mackey_park
+          - sensor.steel_park
 
-  - title: HA Host
+##
+## HA HOST
+##
+
+  - id: 4  # Automatically created id
+    title: HA Host
     icon: mdi:home-assistant
     name: HA Host
     cards:
-      - type: glance
+      - id: 40b3c4759dbd425da429974ada7697f8  # Automatically created id
+        type: glance
+        columns: 3
         entities:
           - sensor.last_boot
-          - entity: sensor.disk_free_
-            name: SD Free
-          - entity: sensor.memory_free
-            name: Mem Free
+#           - entity: sensor.disk_free_
+#             name: SD Free
+#           - entity: sensor.memory_free
+#             name: Mem Free
           - entity: sensor.homeassistant_v2db
             name: DB
           - entity: sensor.homeassistantlog
             name: log
-          
-      - type: history-graph
+
+      - id: c0b153721e254ff0a6212c8539faa826  # Automatically created id
+        type: history-graph
         entities:
-           - sensor.processor_use
-           - sensor.memory_free
-           - sensor.disk_free_
-           - sensor.mariadb_size
-           - sensor.state_changesminute 
-      - type: custom:tracker-card
-        title:
+#            - sensor.processor_use
+#            - sensor.memory_free
+#            - sensor.disk_free_
+          - sensor.mariadb_size
+          - sensor.state_changesminute
+      - id: 995df9d65e2741d49c7e364740626ac1  # Automatically created id
+        type: entities
+        entities:
+          - sensor.glances_containers_active
+          - sensor.glances_containers_cpu_used
+          - sensor.glances_cpu_load
+          - sensor.glances_cpu_temp
+          - sensor.glances_disk_free
+          - sensor.glances_disk_used
+          - sensor.glances_disk_used_2
+          - sensor.glances_ram_free
+          - sensor.glances_ram_used
+          - sensor.glances_ram_used_2
+          - sensor.glances_running
+          - sensor.glances_sleeping
+          - sensor.glances_swap_free
+          - sensor.glances_swap_used
+          - sensor.glances_swap_used_2
+      - id: 16db27cd1aa4410398d0b21e8daaf6c9  # Automatically created id
+        type: history-graph
+        entities:
+          - sensor.glances_cpu_load
+          - sensor.glances_ram_free
+          - sensor.glances_disk_free
+      - id: 22853fdddc0f4651b48b0090accc85b8  # Automatically created id
+        type: custom:tracker-card
+        title: Custom Tracker
         trackers:
-          - sensor.custom_card_tracker
           - sensor.custom_component_tracker
+          - sensor.custom_card_tracker
 
 #       - type: entities
 #         entities:
@@ -269,33 +536,36 @@ views:
 #         entities:
 #            - sensor.state_changesminute 
 
-  - title: NAS
+  - id: 5  # Automatically created id
+    title: NAS
     icon: mdi:server
     name: NAS
     cards:
-      - type: history-graph
+      - id: 976b8e5bb6ce41d9955059003d9df17c  # Automatically created id
+        type: history-graph
         entities:
-           - entity: sensor.onionnas_network_down_eth0
-             name: eth0 Down
-           - entity: sensor.onionnas_network_up_eth0
-             name: eth0 Up
-           - entity: sensor.onionnas_cpu_usage
-             name: CPU %
-           - entity: sensor.onionnas_memory_usage
-             name: MEM %
-           - entity: sensor.onionnas_system_temperature
-             name: CPU
-           - entity: sensor.onionnas_temperature_drive_01
-             name: Drive 1 
-           - entity: sensor.onionnas_temperature_drive_02
-             name: Drive 2
-           - entity: sensor.onionnas_temperature_drive_03
-             name: Drive 3
-           - entity: sensor.onionnas_temperature_drive_04
-             name: Drive 4
+          - entity: sensor.onionnas_network_down_eth0
+            name: eth0 Down
+          - entity: sensor.onionnas_network_up_eth0
+            name: eth0 Up
+          - entity: sensor.onionnas_cpu_usage
+            name: CPU %
+          - entity: sensor.onionnas_memory_usage
+            name: MEM %
+          - entity: sensor.onionnas_system_temperature
+            name: CPU
+          - entity: sensor.onionnas_temperature_drive_01
+            name: Drive 1
+          - entity: sensor.onionnas_temperature_drive_02
+            name: Drive 2
+          - entity: sensor.onionnas_temperature_drive_03
+            name: Drive 3
+          - entity: sensor.onionnas_temperature_drive_04
+            name: Drive 4
 
 
-      - type: vertical-stack
+      - id: 8269a318d43e44b6b9fa41dc6060062e  # Automatically created id
+        type: vertical-stack
         cards:
 #           - type: entities
 #             entities:
@@ -314,7 +584,7 @@ views:
               - sensor.onionnas_network_down_eth0
           - type: glance
             name: Drives
-            column_width: 25%
+            columns: 4
 #             title: SMART Status
             entities:
 #               - entity: sensor.onionnas_temperature_drive_01
@@ -334,13 +604,15 @@ views:
               - entity: sensor.onionnas_smart_status_drive_04
                 name: Drive 4
 
-  - title: Network
+  - id: 6  # Automatically created id
+    title: Network
     icon: mdi:lan
     name: Network
     cards:
 #       - type: iframe
 #         url: https://grafana.binarylight.com.au/d/xE053cKmk/ubnt-edgerouter-dashboard?refresh=1m&panelId=38&orgId=1&var-dataSource=default&var-host=192.168.0.1&var-intf=eth0&fullscreen
-      - type: vertical-stack
+      - id: a3e35336a610467d82b6d44a7d46f9af  # Automatically created id
+        type: vertical-stack
         cards:
           - type: glance
             name: Speedtest
@@ -352,8 +624,8 @@ views:
           - type: history-graph
             hours_to_show: 72
             entities:
-               - sensor.speedtest_download
-               - sensor.speedtest_upload
+              - sensor.speedtest_download
+              - sensor.speedtest_upload
 
 #       - type: vertical-stack
 #         cards:
@@ -371,7 +643,8 @@ views:
 #               - sensor.deluge_down_speed
 #               - sensor.deluge_up_speed
 
-      - type: vertical-stack
+      - id: 99551fd3efd74268ba4e6a2e15eb7b8d  # Automatically created id
+        type: vertical-stack
         cards:
           - type: glance
             name: Transmissiom
@@ -394,9 +667,14 @@ views:
             hours_to_show: 72
             entities:
               - entity: sensor.transmission_down_speed
-                name: Down              
+                name: Down
               - entity: sensor.transmission_up_speed
                 name: Up
+          - type: history-graph
+            entities:
+              - sensor.washing_machine_amps
+              - sensor.dryer_amps
+
 # camera.weather_radar
 # device_tracker.rudders_iphone_x
 # group.all_devices
@@ -407,7 +685,6 @@ views:
 # persistent_notification.config_entry_discovery
 ## remote.living_room
 #  remote.shed_tv
- 
 
 #  sensor.rudders_iphone_x_battery_level
 #  sensor.rudders_iphone_x_battery_state
@@ -416,4 +693,4 @@ views:
 #  sensor.speedtest_upload
 #  switch.deluge_switch
 #  switch.festoon_lights
-#  zone.home	zoning
+#  zone.home    zoning

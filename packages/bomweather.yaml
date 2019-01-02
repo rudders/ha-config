@@ -14,5 +14,95 @@ sensor:
       - weather
       - wind_dir
       - wind_spd_kmh
+      
+  - platform: bom_forecast
+    product_id: IDN10064
+    name: Sydney
+    forecast_days: 3
+    rest_of_today: True
+    friendly: True
+    friendly_state_format: '{min} to {max}, {summary}'
+    monitored_conditions:
+      - 'max'
+      - 'min'
+      - 'chance_of_rain'
+      - 'possible_rainfall'
+      - 'summary'
+      - 'detailed_summary'
+      
+  - platform: template
+    sensors:
+      bom_sydney_0_max:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_0.attributes["Max Temp C"] }}'
+      bom_sydney_min_0_min:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_0.attributes["Min Temp C"] }}'
+      bom_sydney_0_rain_chance:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_0.attributes["Chance of Rain"] }}'
+      bom_sydney_0_possible_rainfall:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_0.attributes["Possible Rainfall"] }}'
+      bom_sydney_0_detailed_summary:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_0.attributes["Detailed Summary"] }}'
+        
+      bom_sydney_1_max:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_1.attributes["Max Temp C"] }}'
+      bom_sydney_min_1_min:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_1.attributes["Min Temp C"] }}'
+      bom_sydney_1_rain_chance:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_1.attributes["Chance of Rain"] }}'
+      bom_sydney_1_possible_rainfall:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_1.attributes["Possible Rainfall"] }}'
+      bom_sydney_1_detailed_summary:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_1.attributes["Detailed Summary"] }}'
 
-  
+      bom_sydney_2_max:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_2.attributes["Max Temp C"] }}'
+      bom_sydney_min_2_min:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_2.attributes["Min Temp C"] }}'
+      bom_sydney_2_rain_chance:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_2.attributes["Chance of Rain"] }}'
+      bom_sydney_2_possible_rainfall:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_2.attributes["Possible Rainfall"] }}'
+      bom_sydney_2_detailed_summary:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_2.attributes["Detailed Summary"] }}'
+
+      bom_sydney_3_max:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_3.attributes["Max Temp C"] }}'
+      bom_sydney_min_3_min:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_3.attributes["Min Temp C"] }}'
+      bom_sydney_3_rain_chance:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_3.attributes["Chance of Rain"] }}'
+      bom_sydney_3_possible_rainfall:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_3.attributes["Possible Rainfall"] }}'
+      bom_sydney_3_detailed_summary:
+        unit_of_measurement: '°'
+        value_template: '{{ states.sensor.bom_forecast_sydney_3.attributes["Detailed Summary"] }}'
+
+
+#     
+      
+# weather:
+#   - platform: bom
+#     station: IDN60901.94768
+
+# weather:
+#   - platform: darksky
+#     api_key: b5bdc6230789b2a721ccf02846b1ddb4

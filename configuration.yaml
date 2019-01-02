@@ -93,5 +93,4 @@ influxdb:
   host: 192.168.0.50
   database: hassos
   
-custom_updater:
-  show_installable: true
+
