@@ -1,0 +1,5 @@
+panel_iframe:
+  nodered:
+    title: Node-RED
+    icon: mdi:sitemap
+    url: https://nodered.binarylight.com.au

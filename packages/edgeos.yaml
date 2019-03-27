@@ -1,0 +1,5 @@
+panel_iframe:
+  edgeos:
+    title: EdgeOS
+    icon: mdi:devices_other
+    url: https://edgeos.binarylight.com.au

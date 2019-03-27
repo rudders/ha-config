@@ -2,8 +2,10 @@ sensor:
   - platform: pyquery
     name: Mackey Park
     scan_interval: 3600
-    resource: https://www.innerwest.nsw.gov.au/places---spaces/sporting-grounds/sporting-ground-status
-    select: tr:contains(Mackey) td p
+#     resource: https://www.innerwest.nsw.gov.au/places---spaces/sporting-grounds/sporting-ground-status
+    resource: https://www.innerwest.nsw.gov.au/explore/parks-sport-and-recreation/sporting-ground-status
+#     select: tr:contains(Mackey) td p
+    select: tr:contains(Mackey) td:nth-child(2)
     attribute: text
     value_template: >-
        {{ value | capitalize }}
@@ -11,8 +13,10 @@ sensor:
   - platform: pyquery
     name: Steel Park
     scan_interval: 3600
-    resource: https://www.innerwest.nsw.gov.au/places---spaces/sporting-grounds/sporting-ground-status
-    select: tr:contains(Steel) td p
+#     resource: https://www.innerwest.nsw.gov.au/places---spaces/sporting-grounds/sporting-ground-status
+    resource: https://www.innerwest.nsw.gov.au/explore/parks-sport-and-recreation/sporting-ground-status
+#     select: tr:contains(Steel) td p
+    select: tr:contains(Steel) td:nth-child(2)
     attribute: text
     value_template: >-
        {{ value | capitalize }}
@@ -64,13 +68,22 @@ sensor:
 #     resource: http://wetweathercheck.com/grounds/29
 #     select: ".portlet-body .btn"
     
-  - platform: scrape
+#   - platform: scrape
+#     name: Bat and Ball
+#     scan_interval: 3600
+#     resource: http://wetweathercheck.com/grounds/35
+#     select: ".portlet-body .btn"
+#     value_template: >-
+#        {{ value | capitalize }}
+
+  - platform: pyquery
     name: Bat and Ball
     scan_interval: 3600
-    resource: http://wetweathercheck.com/grounds/35
-    select: ".portlet-body .btn"
+    resource: http://websites.sportstg.com/club_info.cgi?c=1-4015-81515-0-0&sID=246360
+    select: h5 > span:contains(BAT)
+    attribute: text       
     value_template: >-
-       {{ value | capitalize }}
+       {{ value | capitalize }}    
     
 #   - platform: scrape
 #     name: Heffron
@@ -97,7 +110,14 @@ sensor:
         {{ value | capitalize }}
       {% endif %}
 
-#       {% if not states('sensor.trumper') %} 
+  - platform: pyquery
+    name: ADO Updated
+    scan_interval: 1800
+    resource: http://www.cityofsydney.nsw.gov.au/explore/facilities/sports-facilities
+    select: .column2 p:Contains(updated)
+    attribute: text
+    value_template: >-
+     {{ value | replace("Last updated: ", "") }}
 
     
 #   - platform: scrape

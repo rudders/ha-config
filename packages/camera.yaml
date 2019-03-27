@@ -4,3 +4,11 @@
       mjpeg_url: http://192.168.0.76/video/mjpg.cgi
       username: !secret camera_userid
       password: !secret camera_password
+
+#     - platform: generic
+#       name: BackdoorStream
+# #       stream_source: rtsp://192.168.0.76:554/play1.sdp
+#       still_image_url: http://192.168.0.76/jpg/image.jpg
+#       stream_source: rtsp://192.168.0.50:10273/channel1
+#       username: !secret camera_userid
+#       password: !secret camera_password

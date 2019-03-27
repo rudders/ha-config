@@ -1,86 +1,77 @@
-# automation:
-  - alias: 'Start HomeKit'
-    trigger:
-      - platform: homeassistant
-        event: start
-    action:
-      - delay: '00:05'  # Waits 5 minutes
-      - service: homekit.start
-      
-  - alias: 'Dryer Ends'
-    trigger:
-      - platform: numeric_state
-        entity_id: sensor.dryer_amps
-        below: .3
-        for:
-          seconds: 10
-    condition:
-      - condition: state
-        entity_id: switch.dryer
-        state: 'on'
-      - condition: state
-        entity_id: device_tracker.rudders_iphone_xs_max
-        state: "home"
-      
-    action:
-      service_template: notify.pushover
-      data_template: 
-        title: "Dryer Finished"
-        message: "Looks like the dryer has finished"
-
-  - alias: 'Dryer Airing'
-    trigger:
-      - platform: numeric_state
-        entity_id: sensor.dryer_amps
-        below: 2.0
-        above: .3
-        for:
-          seconds: 20
-    condition:
-      - condition: state
-        entity_id: switch.dryer
-        state: 'on'
-      - condition: state
-        entity_id: device_tracker.rudders_iphone_xs_max
-        state: "home"
-    action:
-      service_template: notify.pushover
-      data_template: 
-        title: "Dryer Airing"
-        message: "Looks like the dryer is Airing"
-        
-        
-  - alias: 'Washing Ends'
-    trigger:
-      - platform: numeric_state
-        entity_id: sensor.washing_machine_amps
-        below: .2
-        for:
-          seconds: 120
-    condition:
-      - condition: state
-        entity_id: switch.washing_machine
-        state: 'on'
-      - condition: state
-        entity_id: device_tracker.rudders_iphone_xs_max
-        state: "home"
-#         - condition: time
-#           after: '06:00:00'
-#           before: '20:00:00'
-    action:
-      service_template: notify.pushover
-      data_template: 
-        title: "Washing Finished"
-        message: "Looks like the washing has finished"
-
-#         
-#         
-#         - service: tts.google_say
-#           entity_id:
-#             - media_player.kitchen_home
-#             - media_player.gaming_room_home
-#             - media_player.ensuite_speaker
-#           data_template:
-#             message: "The washing machine has finished"
-#         - service: input_boolean.turn_off
-#           entity_id: input_boolean.washing_active
+- alias: Start HomeKit
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+  - delay: 00:05
+  - service: homekit.start
+  id: 91ad15574f6e48f18e6af17e9b68ee6e
+- alias: Dryer Ends
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.dryer_amps
+    below: 0.3
+    for:
+      seconds: 60
+  condition:
+  - condition: state
+    entity_id: switch.hs110_1
+    state: 'on'
+  - condition: state
+    entity_id: device_tracker.rudders_iphone_xs_max
+    state: home
+  action:
+    service_template: notify.pushover
+    data_template:
+      title: Dryer Finished
+      message: Looks like the dryer has finished
+  id: 581110b5ef5248779521d02370e86a6f
+- id: 37d86b79f5cf42c6a506224bcca70125
+  alias: Dryer Airing
+  trigger:
+  - above: 0.3
+    below: '2'
+    entity_id: sensor.dryer_amps
+    for:
+      seconds: 60
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: switch.hs110_1
+    state: 'on'
+  - condition: state
+    entity_id: device_tracker.rudders_iphone_xs_max
+    state: home
+  action:
+  - data_template:
+      message: Looks like the dryer is Airing
+      title: Dryer Airing
+    service_template: notify.pushover
+- alias: Washing Ends
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.washing_machine_amps
+    below: 0.2
+    for:
+      seconds: 120
+  condition:
+  - condition: state
+    entity_id: switch.hs110_2
+    state: 'on'
+  - condition: state
+    entity_id: device_tracker.rudders_iphone_xs_max
+    state: home
+  action:
+    service_template: notify.pushover
+    data_template:
+      title: Washing Finished
+      message: Looks like the washing has finished
+  id: cb108d48926a43eda6db720af751d5c2
+- id: '1549411240566'
+  alias: Hassio Snapshot
+  trigger:
+  - platform: webhook
+    webhook_id: newsnapshot
+  condition: []
+  action:
+  - service: hassio.snapshot_full

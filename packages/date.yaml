@@ -1,0 +1,15 @@
+sensor:
+  - platform: time_date
+    display_options:
+      - 'date'
+#   - platform: template
+#     sensors:
+#       today_day:
+#         friendly_name: "Today"
+#         value_template: >-
+#           {{ now().strftime('%d %b') }}
+#       tomorrow_day:
+#         friendly_name: "Tomorrrow"
+#         value_template: >-
+#           {% set tomorrow = as_timestamp(now()) + 60*60*24 %}
+#           {{ tomorrow |timestamp_custom('%d %b') }}

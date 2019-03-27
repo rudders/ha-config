@@ -1,13 +1,22 @@
-sensor:
-  - platform: speedtest
-    minute:
-      - 0
-      - 30
-    monitored_conditions:
-      - ping
-      - download
-      - upload
+# sensor:
+#   - platform: speedtest
+#     minute:
+#       - 0
+#       - 30
+#     monitored_conditions:
+#       - ping
+#       - download
+#       - upload
       
+      
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+    
 #   - platform: statistics
 #     name: Speedtest Down
 #     entity_id:  sensor.speedtest_download

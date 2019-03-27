@@ -1,4 +1,9 @@
+#   camera:
+#     - platform: generic
+#       name: Weather Radar
+#       still_image_url: http://www.bom.gov.au/radar/IDR714.gif
+#       
   camera:
-    - platform: generic
-      name: Weather Radar
-      still_image_url: http://www.bom.gov.au/radar/IDR714.gif
+    - platform: bom_radar
+      name: Sydney Radar
+      product_id: IDR714

@@ -1,15 +1,15 @@
-sensor:
-  - platform: transmission
-    host: 192.168.0.229
-    username: !secret transmission_userid 
-    password: !secret transmission_password
-    monitored_variables:
-      - 'current_status'
-      - 'download_speed'
-      - 'upload_speed'
-      - 'active_torrents'
-      - 'paused_torrents'
-      - 'total_torrents'
+transmission:
+  host: 192.168.0.229
+  username: !secret transmission_userid 
+  password: !secret transmission_password
+  turtle_mode: true
+  monitored_conditions:
+    - 'current_status'
+    - 'download_speed'
+    - 'upload_speed'
+    - 'active_torrents'
+    - 'paused_torrents'
+    - 'total_torrents'
       
 switch:
   - platform: transmission
@@ -18,7 +18,7 @@ switch:
     host: 192.168.0.229
     
 panel_iframe:
-  transmissiom:
+  transmission:
     title: Transmission
     icon: mdi:briefcase-download
-    url: https://rudders:jennais5@transmission.binarylight.com.au
+    url: https://transmission.binarylight.com.au

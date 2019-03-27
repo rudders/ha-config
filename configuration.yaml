@@ -30,7 +30,7 @@ config:
 
 http:
   # Secrets are defined in the file secrets.yaml
-  api_password: !secret http_password
+#   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
 
@@ -53,10 +53,10 @@ conversation:
 history:
 
 # View all events in a logbook
-logbook:
+#logbook:
 
 # Enables a map showing the location of tracked devices
-map:
+#map:
 
 # Track the sun
 # sun:
@@ -93,4 +93,5 @@ influxdb:
   host: 192.168.0.50
   database: hassos
   
+system_health:
 

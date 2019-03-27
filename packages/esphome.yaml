@@ -1,0 +1,5 @@
+panel_iframe:
+  esphome:
+    title: ESPHome
+    icon: mdi:developer-board
+    url: https://esphome.binarylight.com.au

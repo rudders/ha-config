@@ -1,0 +1,5 @@
+panel_iframe:
+  nginx:
+    title: Nginx Proxy Manager
+    icon: mdi:arrow-decision-outline
+    url: https://nginx.binarylight.com.au

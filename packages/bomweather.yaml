@@ -39,13 +39,10 @@ sensor:
         unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_0.attributes["Min Temp C"] }}'
       bom_sydney_0_rain_chance:
-        unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_0.attributes["Chance of Rain"] }}'
       bom_sydney_0_possible_rainfall:
-        unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_0.attributes["Possible Rainfall"] }}'
       bom_sydney_0_detailed_summary:
-        unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_0.attributes["Detailed Summary"] }}'
         
       bom_sydney_1_max:
@@ -55,13 +52,10 @@ sensor:
         unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_1.attributes["Min Temp C"] }}'
       bom_sydney_1_rain_chance:
-        unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_1.attributes["Chance of Rain"] }}'
       bom_sydney_1_possible_rainfall:
-        unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_1.attributes["Possible Rainfall"] }}'
       bom_sydney_1_detailed_summary:
-        unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_1.attributes["Detailed Summary"] }}'
 
       bom_sydney_2_max:
@@ -71,13 +65,10 @@ sensor:
         unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_2.attributes["Min Temp C"] }}'
       bom_sydney_2_rain_chance:
-        unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_2.attributes["Chance of Rain"] }}'
       bom_sydney_2_possible_rainfall:
-        unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_2.attributes["Possible Rainfall"] }}'
       bom_sydney_2_detailed_summary:
-        unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_2.attributes["Detailed Summary"] }}'
 
       bom_sydney_3_max:
@@ -87,15 +78,21 @@ sensor:
         unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_3.attributes["Min Temp C"] }}'
       bom_sydney_3_rain_chance:
-        unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_3.attributes["Chance of Rain"] }}'
       bom_sydney_3_possible_rainfall:
-        unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_3.attributes["Possible Rainfall"] }}'
       bom_sydney_3_detailed_summary:
-        unit_of_measurement: '°'
         value_template: '{{ states.sensor.bom_forecast_sydney_3.attributes["Detailed Summary"] }}'
 
+      today_day:
+        friendly_name: "Today"
+        value_template: '{{ states.sensor.bom_forecast_sydney_0.attributes["friendly_name"] }}'
+      tomorrow_day:
+        friendly_name: "Tomorrrow"
+        value_template: '{{ states.sensor.bom_forecast_sydney_1.attributes["friendly_name"] }}'
+      next_day:
+        friendly_name: "Next Day"
+        value_template: '{{ states.sensor.bom_forecast_sydney_2.attributes["friendly_name"] }}'
 
 #     
       

@@ -5,5 +5,4 @@ homekit:
       - media_player
     include_entities:
       - switch.festoon_lights
-      - switch.table_lamp
       
