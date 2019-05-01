@@ -53,7 +53,7 @@
     entity_id: sensor.washing_machine_amps
     below: 0.2
     for:
-      seconds: 120
+      seconds: 300
   condition:
   - condition: state
     entity_id: switch.hs110_2

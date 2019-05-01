@@ -1,0 +1,12 @@
+sensor:
+  - platform: mqtt
+    name: "Newtown Temperature"
+    state_topic: "home/rtl_433"
+    unit_of_measurement: '°C'
+    value_template: "{{ value_json.temperature_C }}"
+
+  - platform: mqtt
+    name: "Newtown Humidity"
+    state_topic: "home/rtl_433"
+    unit_of_measurement: '%'
+    value_template: "{{ value_json.humidity }}"
