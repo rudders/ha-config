@@ -1,0 +1,10 @@
+media_player:
+  - platform: xboxone
+    device: FD00CCB561E8FEB4
+    name: Mitchell's Xbox One
+    
+sensor:
+  - platform: xbox_live
+    api_key: c0da7192400702b5a957be4236ac2e9aa068cdb6
+    xuid:
+      - 2535437571188198

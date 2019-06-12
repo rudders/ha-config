@@ -17,6 +17,8 @@ homeassistant:
   # Need access to monitor log and DB size
   whitelist_external_dirs:
     - /config
+    
+default_config:
 
 # Show links to resources in log and frontend
 #introduction:
@@ -82,6 +84,8 @@ script: !include scripts.yaml
 
 logger:
   default: warning
+#   logs:
+#     homeassistant.components: debug
 #   logs:
 #     homeassistant.components.recorder: debug
 #     homeassistant.components.camera.generic: critical

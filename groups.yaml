@@ -2,6 +2,6 @@
     name: Shed
     icon: mdi:light
     entities:
-      - light.shed_fridge_light
-      - light.shed_laundry_light
+      - light.hue_color_lamp_1 
+      - light.shed_laundry_light  
       - light.shed_tools_light

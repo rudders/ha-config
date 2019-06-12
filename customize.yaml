@@ -7,8 +7,6 @@ sensor.bom_sydney_air_temp_c:
   friendly_name: Sydney Temp
 sensor.bom_sydney_feels_like_c:
   friendly_name: Sydney Feels Like
-
-# Ovals
 sensor.ado:
   icon: mdi:leaf
 sensor.trumper:
@@ -28,20 +26,15 @@ sensor.mackey_oval:
 sensor.mackey_park:
   icon: mdi:leaf
 sensor.david_philips_south:
-  icon: mdi:leaf   
+  icon: mdi:leaf
 sensor.steel_park:
-  icon: mdi:leaf   
-
-
-# Speedtest
+  icon: mdi:leaf
 sensor.speedtest_download:
   friendly_name: Download
 sensor.speedtest_upload:
   friendly_name: Upload
 sensor.speedtest_ping:
   friendly_name: Ping
-  
-# deluge
 sensor.deluge_down_speed:
   friendly_name: Download
 sensor.deluge_up_speed:
@@ -50,8 +43,6 @@ sensor.deluge_status:
   friendly_name: Status
 switch.deluge_switch:
   friendly_name: On/Off
-  
-# SONOS Speakers
 media_player.bbq:
   icon: mdi:speaker
 media_player.garden:
@@ -64,3 +55,11 @@ media_player.lounge:
   icon: mdi:speaker
 media_player.unnamed_room:
   icon: mdi.speaker
+sensor.adsl_internet_in_mbps:
+  friendly_name: In
+sensor.adsl_internet_out_mbps:
+  friendly_name: Out
+sensor.budget_erskineville_p98:
+  friendly_name: P98
+sensor.ocl_stock:
+  friendly_name: OCL

@@ -1,0 +1,5 @@
+tuya:
+  username: a.rudman@binarylight.com.au
+  password: !sectre tuya_password
+  country_code: 61
+  platform: smart_life

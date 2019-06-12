@@ -22,9 +22,38 @@ sensor:
       - docker_active
       - docker_cpu_use
       - docker_memory_use
-          
+
+  - platform: glances
+    host: 192.168.0.232
+    port: 61208
+    version: 3
+    resources:
+      - disk_use_percent
+      - disk_use
+      - disk_free
+      - memory_use_percent
+      - memory_use
+      - memory_free
+      - swap_use_percent
+      - swap_use
+      - swap_free
+      - processor_load
+      - process_running
+      - process_total
+      - process_thread
+      - process_sleeping
+      - cpu_temp
+      - docker_active
+      - docker_cpu_use
+      - docker_memory_use
+      
 panel_iframe:
-  glances:
-    title: glances
+  nuc_glances:
+    title: NUC-glances
     icon: mdi:gauge
-    url: https://glances.binarylight.com.au
+    url: https://nuc-glances.binarylight.com.au
+
+  dlxc_glances:
+    title: DockerLXC-glances
+    icon: mdi:gauge
+    url: https://dlxc-glances.binarylight.com.au

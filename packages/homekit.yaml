@@ -1,8 +1,8 @@
 homekit:
   auto_start: false
   filter:
-    include_domains:
-      - media_player
+#     include_domains:
+#       - media_player
     include_entities:
       - switch.festoon_lights
       

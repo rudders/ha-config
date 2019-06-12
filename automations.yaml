@@ -1,11 +1,11 @@
-- alias: Start HomeKit
+- id: 91ad15574f6e48f18e6af17e9b68ee6e
+  alias: Start HomeKit
   trigger:
-  - platform: homeassistant
-    event: start
+  - event: start
+    platform: homeassistant
   action:
   - delay: 00:05
   - service: homekit.start
-  id: 91ad15574f6e48f18e6af17e9b68ee6e
 - alias: Dryer Ends
   trigger:
   - platform: numeric_state
@@ -29,7 +29,7 @@
 - id: 37d86b79f5cf42c6a506224bcca70125
   alias: Dryer Airing
   trigger:
-  - above: 0.3
+  - above: '0.3'
     below: '2'
     entity_id: sensor.dryer_amps
     for:
@@ -39,14 +39,15 @@
   - condition: state
     entity_id: switch.hs110_1
     state: 'on'
-  - condition: state
-    entity_id: device_tracker.rudders_iphone_xs_max
-    state: home
   action:
   - data_template:
       message: Looks like the dryer is Airing
       title: Dryer Airing
     service_template: notify.pushover
+  - data:
+      message: Looks like the dryer is Airing
+      title: Dryer Airing
+    service: notify.pushover
 - alias: Washing Ends
   trigger:
   - platform: numeric_state

@@ -1,0 +1,12 @@
+switch:
+  - platform: localtuya
+    host: 192.168.0.39
+    local_key: 7dc672905606a6d4
+    device_id: 77726314dc4f226141ce
+    switches:
+      switch1:
+        friendly_name: Heeater_LED
+        id: 1
+      switch2:
+        friendly_name: Heater_Switch
+        id: 101

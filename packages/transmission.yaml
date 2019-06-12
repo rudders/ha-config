@@ -1,5 +1,5 @@
 transmission:
-  host: 192.168.0.229
+  host: 192.168.0.232
   username: !secret transmission_userid 
   password: !secret transmission_password
   turtle_mode: true
@@ -15,7 +15,7 @@ switch:
   - platform: transmission
     username: !secret transmission_userid 
     password: !secret transmission_password
-    host: 192.168.0.229
+    host: 192.168.0.232
     
 panel_iframe:
   transmission:

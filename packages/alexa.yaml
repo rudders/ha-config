@@ -1,0 +1,5 @@
+cloud:
+  alexa:
+    filter:
+      include_entities:
+        - switch.birdy_s_light
